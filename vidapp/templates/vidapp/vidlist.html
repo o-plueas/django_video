@@ -1,0 +1,28 @@
+<!-- video_app/templates/video_app/video_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+</head>
+<body>
+    <h1>Video List</h1>
+
+    <ul>
+        {% for video in videos %}
+            <li>
+                <strong>{{ video.title }}</strong><br>
+                <video width="320" height="240" controls>
+                    <source src="{{ video.video_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br><br>
+    <a href="{% url 'upload_video' %}">Upload a New Video</a>
+</body>
+</html>
